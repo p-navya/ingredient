@@ -7,21 +7,46 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>3D Ingredient Extraction from Recipes</h1>
-    </header>
-    <main>
-        <section class="form-section">
-            <form action="/extract" method="post">
-                <textarea name="text" placeholder="Paste a recipe here..." required></textarea>
-                <button type="submit">Extract Ingredients</button>
-            </form>
-        </section>
-        <section id="output" class="output-section"></section>
-    </main>
-    <footer>
-        <p>&copy; 2025 3D Recipe Extractor</p>
-    </footer>
+    <div class="background-3d">
+        <div class="sketchfab-embed-wrapper"> 
+            <iframe title="JapaneseFood Pack02" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/132499ae248c4598b210ecda3955c7de/embed"> 
+            </iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>3D Ingredient Extraction from Recipes</h1>
+        </header>
+
+        <main class="content">
+            <div class="card-container">
+                <div class="card">
+                    <form id="extractionForm" action="/extract" method="post" enctype="multipart/form-data">
+                        <textarea name="text" placeholder="Paste a recipe here..."></textarea>
+
+                        <input type="text" name="url" placeholder="Enter recipe blog URL">
+
+                        <label for="file-upload" class="file-label">Upload a text file:</label>
+                        <input type="file" id="file-upload" name="file">
+
+                        <button type="submit">Extract Ingredients</button>
+                    </form>
+
+                    <div id="loading" class="hidden">
+                        <p>⏳ Extracting ingredients... Please wait.</p>
+                    </div>
+                </div>
+
+                <div class="card" id="output"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 3D Recipe Extractor | Powered by AI</p>
+        </footer>
+    </div>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

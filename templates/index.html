@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Ingredient Extraction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>3D Ingredient Extraction from Recipes</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <form action="/extract" method="post">
+                <textarea name="text" placeholder="Paste a recipe here..." required></textarea>
+                <button type="submit">Extract Ingredients</button>
+            </form>
+        </section>
+        <section id="output" class="output-section"></section>
+    </main>
+    <footer>
+        <p>&copy; 2025 3D Recipe Extractor</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
